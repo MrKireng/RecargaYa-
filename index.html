@@ -7,36 +7,52 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(120deg, #007bff, #00c6ff);
+      background-color: #f0f4f8;
       margin: 0;
       padding: 0;
+    }
+
+    .header {
+      background-color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
+      padding: 1rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .header img.logo {
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .header h1 {
+      color: #007bff;
+      margin: 0;
+    }
+
+    .banner img {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      display: block;
     }
 
     .form-container {
       background-color: white;
-      padding: 2rem 2.5rem;
+      margin: 2rem auto;
+      padding: 2rem;
       border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      width: 100%;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       max-width: 400px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #007bff;
-      margin-bottom: 1.5rem;
     }
 
     input, select, button {
       width: 100%;
       padding: 0.75rem;
       margin-bottom: 1rem;
-      border: 1px solid #ccc;
       border-radius: 8px;
+      border: 1px solid #ccc;
       font-size: 1rem;
     }
 
@@ -45,7 +61,6 @@
       color: white;
       border: none;
       font-weight: bold;
-      transition: background-color 0.3s ease;
       cursor: pointer;
     }
 
@@ -54,15 +69,28 @@
     }
 
     .footer {
-      margin-top: 1rem;
+      text-align: center;
+      padding: 1rem;
       font-size: 0.9rem;
-      color: #555;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="form-container">
+
+  <!-- Encabezado con logo -->
+  <div class="header">
+    <img src="logo-peru.png" alt="Logo P de Perú" class="logo">
     <h1>RecargaYa!</h1>
+  </div>
+
+  <!-- Imagen principal de Javier Prado con Corredor Rojo -->
+  <div class="banner">
+    <img src="javier-prado-bus.jpg" alt="Avenida Javier Prado con bus del corredor rojo">
+  </div>
+
+  <!-- Formulario de recarga -->
+  <div class="form-container">
     <form id="recargaForm">
       <input type="text" placeholder="Número de teléfono o tarjeta" required />
       <input type="number" placeholder="Monto a recargar (S/.)" required />
@@ -75,15 +103,16 @@
       </select>
       <button type="submit">Recargar</button>
     </form>
-    <div class="footer">Evita colas. Recarga fácil, recarga ya.</div>
   </div>
 
+  <div class="footer">Evita colas. Recarga fácil, recarga ya.</div>
+
   <script>
-    // Espera a que cargue el contenido
     document.getElementById('recargaForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // evita que recargue la página
+      e.preventDefault();
       alert("✅ ¡Recarga realizada con éxito!");
     });
   </script>
+
 </body>
 </html>
