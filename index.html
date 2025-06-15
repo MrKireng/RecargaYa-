@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RecargaYa! - Recarga tu tarjeta del Metropolitano</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #007bff;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>RecargaYa!</h1>
+    <input type="text" placeholder="Número de teléfono o tarjeta" required />
+    <input type="number" placeholder="Monto a recargar (S/.)" required />
+    <select required>
+      <option disabled selected>Selecciona método de pago</option>
+      <option>Tarjeta de crédito</option>
+      <option>Tarjeta de débito</option>
+      <option>Yape</option>
+      <option>Plin</option>
+    </select>
+    <button>Recargar</button>
+  </div>
+</body>
+</html>
