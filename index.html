@@ -63,24 +63,27 @@
 <body>
   <div class="form-container">
     <h1>RecargaYa!</h1>
-    <input type="text" placeholder="Número de teléfono o tarjeta" required />
-    <input type="number" placeholder="Monto a recargar (S/.)" required />
-    <select required>
-      <option disabled selected>Selecciona método de pago</option>
-      <option>Tarjeta de crédito</option>
-      <option>Tarjeta de débito</option>
-      <option>Yape</option>
-      <option>Plin</option>
-    </select>
-    <button onclick="confirmarRecarga()">Recargar</button>
+    <form id="recargaForm">
+      <input type="text" placeholder="Número de teléfono o tarjeta" required />
+      <input type="number" placeholder="Monto a recargar (S/.)" required />
+      <select required>
+        <option disabled selected>Selecciona método de pago</option>
+        <option>Tarjeta de crédito</option>
+        <option>Tarjeta de débito</option>
+        <option>Yape</option>
+        <option>Plin</option>
+      </select>
+      <button type="submit">Recargar</button>
+    </form>
     <div class="footer">Evita colas. Recarga fácil, recarga ya.</div>
   </div>
 
   <script>
-    function confirmarRecarga() {
+    // Espera a que cargue el contenido
+    document.getElementById('recargaForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // evita que recargue la página
       alert("✅ ¡Recarga realizada con éxito!");
-    }
+    });
   </script>
 </body>
 </html>
-
