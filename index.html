@@ -3,46 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RecargaYa! - Recarga tu tarjeta del Metropolitano</title>
+  <title>RecargaYa! - Recarga tu tarjeta</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #007bff, #00c6ff);
       margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
     }
+
     .form-container {
       background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       width: 100%;
       max-width: 400px;
-    }
-    h1 {
       text-align: center;
-      margin-bottom: 1.5rem;
-      color: #007bff;
     }
+
+    h1 {
+      color: #007bff;
+      margin-bottom: 1.5rem;
+    }
+
     input, select, button {
       width: 100%;
       padding: 0.75rem;
       margin-bottom: 1rem;
-      font-size: 1rem;
-      border-radius: 5px;
       border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
     }
+
     button {
       background-color: #007bff;
       color: white;
       border: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #0056b3;
+    }
+
+    .footer {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
@@ -58,7 +72,15 @@
       <option>Yape</option>
       <option>Plin</option>
     </select>
-    <button>Recargar</button>
+    <button onclick="confirmarRecarga()">Recargar</button>
+    <div class="footer">Evita colas. Recarga fácil, recarga ya.</div>
   </div>
+
+  <script>
+    function confirmarRecarga() {
+      alert("✅ ¡Recarga realizada con éxito!");
+    }
+  </script>
 </body>
 </html>
+
