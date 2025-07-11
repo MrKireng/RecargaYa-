@@ -86,11 +86,15 @@
       font-size: 0.9rem;
       color: #666;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Encabezado con logo ATU a la izquierda y RecargaYa a la derecha -->
+  <!-- Encabezado con logos -->
   <div class="header">
     <div class="header-left">
       <img src="logo-atu.png" alt="Logo ATU">
@@ -101,17 +105,22 @@
     </div>
   </div>
 
-  <!-- Banner de Javier Prado -->
+  <!-- Banner -->
   <div class="banner">
     <img src="javier-prado-bus.jpg" alt="Avenida Javier Prado con bus del corredor rojo">
   </div>
 
-  <!-- Formulario -->
-  <div class="form-container">
+  <!-- Formulario de recarga -->
+  <div class="form-container" id="formContainer">
     <form id="recargaForm">
-      <input type="text" placeholder="Número de teléfono o tarjeta" required />
-      <input type="number" placeholder="Monto a recargar (S/.)" required />
-      <select required>
+      <label for="inputNumero">Número de teléfono o tarjeta</label>
+      <input id="inputNumero" type="text" placeholder="Número de teléfono o tarjeta" required />
+
+      <label for="inputMonto">Monto a recargar (S/.)</label>
+      <input id="inputMonto" type="number" placeholder="Monto a recargar (S/.)" min="1" required />
+
+      <label for="metodoPago">Método de pago</label>
+      <select id="metodoPago" required>
         <option disabled selected>Selecciona método de pago</option>
         <option>Tarjeta de crédito</option>
         <option>Tarjeta de débito</option>
@@ -122,12 +131,38 @@
     </form>
   </div>
 
+  <!-- Pantalla de confirmación -->
+  <div class="form-container hidden" id="confirmacionContainer">
+    <h2>✅ ¡Recarga Exitosa!</h2>
+    <p><strong>Número de tarjeta:</strong> <span id="resNumero"></span></p>
+    <p><strong>Monto recargado:</strong> S/. <span id="resMonto"></span></p>
+    <p>Gracias por usar RecargaYa!</p>
+  </div>
+
+  <!-- Pie de página -->
   <div class="footer">Evita colas. Recarga fácil, recarga ya.</div>
 
+  <!-- Script -->
   <script>
     document.getElementById('recargaForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert("✅ ¡Recarga realizada con éxito!");
+
+      const numero = document.getElementById('inputNumero').value.trim();
+      const monto = parseFloat(document.getElementById('inputMonto').value);
+      const metodo = document.getElementById('metodoPago').value;
+
+      if (isNaN(monto) || monto <= 0) {
+        alert("❌ El monto debe ser mayor a cero.");
+        return;
+      }
+
+      // Oculta el formulario y muestra la confirmación
+      document.getElementById('formContainer').style.display = 'none';
+      document.getElementById('confirmacionContainer').style.display = 'block';
+
+      // Muestra los datos ingresados
+      document.getElementById('resNumero').textContent = numero;
+      document.getElementById('resMonto').textContent = monto.toFixed(2);
     });
   </script>
 
